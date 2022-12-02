@@ -25,6 +25,9 @@ global.print = function(...args) {
 String.prototype.toInt = function() {
     return this.charCodeAt(0);
 }
+String.prototype.lines = function() {
+    return this.split('\n');
+}
 Number.prototype.toChar = function() {
     return String.fromCharCode(this);
 }

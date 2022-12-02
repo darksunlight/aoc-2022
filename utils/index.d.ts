@@ -9,6 +9,7 @@ interface Array {
 
 interface String {
     toInt(): number;
+    lines(): string[];
 }
 
 interface Number {
