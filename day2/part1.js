@@ -1,20 +1,15 @@
 require("../utils");
 const input = readInput();
-const scores = {
-    X: 1,
-    Y: 2,
-    Z: 3
-}
 let score = 0;
 input.split('\n').forEach(line => {
     const [o, p] = line.split(" ").map(x => x.toInt());
     const diff = 'X'.toInt() - 'A'.toInt();
-    if (o == p - diff) {
-        score += 3 + scores[p.toChar()];
-    } else if (o == p - 1 - diff || o == p + 2 - diff) {
-        score += 6 + scores[p.toChar()];
-    } else {
-        score += scores[p.toChar()];
+    const scoreDiff = 'X'.toInt() - 1;
+    score += p - scoreDiff;
+    if (o == p - diff) { // draw
+        score += 3;
+    } else if (o == p - 1 - diff || o == p + 2 - diff) { // win
+        score += 6;
     }
 });
 print(score);
