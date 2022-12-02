@@ -6,3 +6,11 @@ interface Array {
     sortAsc(): Array;
     sortDesc(): Array;
 }
+
+interface String {
+    toInt(): number;
+}
+
+interface Number {
+    toChar(): string;
+}
