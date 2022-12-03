@@ -1,2 +1,2 @@
 # AOC 2022
-I put stuff here.
+spaghetti 2022 edition
