@@ -16,8 +16,19 @@ Array.prototype.sortAsc = function() {
 Array.prototype.sortDesc = function() {
     return this.sort((a, b) => b - a);
 }
+Array.prototype.chunks = function(x) { // like last year I got this from https://stackoverflow.com/a/37826698
+    return this.reduce((p, c, i) => {
+        const ci = Math.floor(i / x);
+        if (!p[ci]) p[ci] = [];
+        p[ci].push(c);
+        return p;
+    }, []);
+}
 global.readInput = function() {
     return require("fs").readFileSync('./input.txt', 'utf-8');
+}
+global.readTInput = function() {
+    return require("fs").readFileSync('./test.txt', 'utf-8');
 }
 global.print = function(...args) {
     console.log(...args);
