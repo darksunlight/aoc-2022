@@ -5,6 +5,7 @@ interface Array {
     toInt(): Array<number>;
     sortAsc(): Array;
     sortDesc(): Array;
+    chunks(): Array;
 }
 
 interface String {
