@@ -16,6 +16,12 @@ Array.prototype.sortAsc = function() {
 Array.prototype.sortDesc = function() {
     return this.sort((a, b) => b - a);
 }
+Array.prototype.windowed = function(size, step = 1, partialWindows = false) {
+    return Array.from(
+        { length: Math.floor(this.length / step) - Math.ceil(size / step) + 1 + partialWindows },
+        (_, i) => this.slice(i * step, i * step + size)
+    )
+}
 Array.prototype.chunks = function(x) { // like last year I got this from https://stackoverflow.com/a/37826698
     return this.reduce((p, c, i) => {
         const ci = Math.floor(i / x);
