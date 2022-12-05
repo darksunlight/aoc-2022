@@ -13,6 +13,5 @@ procedures.map(p => {
     const temp = Array.from(stacks[orig - 1].slice(stacks[orig - 1].length-quantity));
     stacks[orig - 1] = stacks[orig - 1].slice(0, stacks[orig - 1].length-quantity);
     stacks[dest - 1].push(...temp);
-    console.log(stacks);
 });
 print(stacks.map(x => x[x.length - 1]).join(''));
