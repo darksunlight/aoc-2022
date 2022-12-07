@@ -5,6 +5,7 @@ interface Array {
     toInt(): Array<number>;
     sortAsc(): Array;
     sortDesc(): Array;
+    windowed(size: number, step = 1, partialWindows = false): Array;
     chunks(): Array;
 }
 
