@@ -25,6 +25,4 @@ input.lines().map(line => {
     }
     return;
 });
-let total = 0;
-sizes.forEach(v => total += v > 100000 ? 0 : v)
-console.log(total);
+print([...sizes].map(([,v]) => v).filter(v => v <= 100000).sum());

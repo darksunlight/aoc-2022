@@ -26,4 +26,4 @@ input.lines().map(line => {
     return;
 });
 const minSize = sizes.get('/') - 40_000_000;
-console.log([...sizes].map(([,v]) => v).filter(v => v >= minSize).min());
+print([...sizes].map(([,v]) => v).filter(v => v >= minSize).min());
