@@ -2,12 +2,13 @@ require("../utils");
 /** @type {String} */
 const input = readInput();
 const monkeys = input.split('\n\n').map(monkey => {
+    const desc = monkey.split('\n');
     return {
-        items: monkey.split('\n')[1].split(':')[1].trim().split(',').map(x => +x),
-        operation: monkey.split('\n')[2].split(':')[1].trim().replace('new', 'newLevel'),
-        test: +monkey.split('\n')[3].split('Test: divisible by ')[1],
-        ifTrue: +monkey.split('\n')[4].split('If true: throw to monkey ')[1],
-        ifFalse: +monkey.split('\n')[5].split('If false: throw to monkey ')[1],
+        items: desc[1].split(':')[1].trim().split(',').map(x => +x),
+        operation: desc[2].split(':')[1].trim().replace('new', 'newLevel'),
+        test: +desc[3].split('Test: divisible by ')[1],
+        ifTrue: +desc[4].split('If true: throw to monkey ')[1],
+        ifFalse: +desc[5].split('If false: throw to monkey ')[1],
         inspections: 0,
     };
 });
