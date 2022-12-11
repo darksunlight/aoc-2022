@@ -4,12 +4,12 @@ const input = readInput();
 const monkeys = input.split('\n\n').map(monkey => {
     const desc = monkey.split('\n');
     return {
-        items: desc[1].split(':')[1].trim().split(',').map(x => +x),
-        operation: desc[2].split(':')[1].trim().replaceAll('old', 'monkey.items[k]').replace('new', 'newLevel'),
-        test: +desc[3].split('Test: divisible by ')[1],
-        ifTrue: +desc[4].split('If true: throw to monkey ')[1],
-        ifFalse: +desc[5].split('If false: throw to monkey ')[1],
-        inspections: 0
+        items: desc[1].slice(18).split(',').map(x => +x),
+        operation: desc[2].slice(13).replaceAll('old', 'monkey.items[k]').replace('new', 'newLevel'),
+        test: +desc[3].slice(21),
+        ifTrue: +desc[4].slice(29),
+        ifFalse: +desc[5].slice(29),
+        inspections: 0,
     };
 });
 const stressReducer = monkeys.reduce((acc, { test }) => acc * test, 1);
