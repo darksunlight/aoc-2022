@@ -45,6 +45,6 @@ if (parent[i]) {
 console.log(s.reverse(), "size", s.length - 1);
 console.log(heightmap.map((x, i) => {
     if (s.includes(i)) return "\x1b[43m" + x + "\x1b[0m";
-    if (visited.includes(i)) return "\x1b[41m" + x + "\x1b[0m";
+    if (!visited.includes(i)) return "\x1b[41m" + x + "\x1b[0m";
     return x;
 }).chunks(width).map(x => x.join('')).join('\n'))
