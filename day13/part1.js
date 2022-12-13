@@ -27,4 +27,4 @@ function isInOrder(pair) {
     }
     return null;
 }
-print(pairs.map((pair, i) => [i + 1, isInOrder(pair)]).filter(x => x[1]).map(x => x[0]).sum());
+print(pairs.map((pair, i) => isInOrder(pair) ? i + 1 : 0).sum());
