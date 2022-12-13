@@ -19,12 +19,7 @@ function isInOrder(pair) {
         if (sub === null) continue;
         return sub;
     }
-    if (right.length > left.length) {
-        return true;
-    }
-    if (left.length > right.length) {
-        return false;
-    }
-    return null;
+    if (left.length == right.length) return null;
+    return right.length > left.length;
 }
 print(pairs.map((pair, i) => isInOrder(pair) ? i + 1 : 0).sum());

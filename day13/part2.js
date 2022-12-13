@@ -20,13 +20,8 @@ function isInOrder(pair) {
         if (sub === null) continue;
         return sub;
     }
-    if (right.length > left.length) {
-        return true;
-    }
-    if (left.length > right.length) {
-        return false;
-    }
-    return null;
+    if (left.length == right.length) return null;
+    return right.length > left.length;
 }
 const sorted = pairs.sort((l, r) => isInOrder([l, r]) ? -1 : 1);
 print((sorted.indexOf(divs[0]) + 1) * (sorted.indexOf(divs[1]) + 1));
