@@ -5,14 +5,12 @@ const divs = [[[2]], [[6]]];
 const pairs = [...input.split('\n\n').map(x => x.split('\n').map(x => JSON.parse(x))).flat(), ...divs];
 function isInOrder(pair) {
     const [left, right] = pair;
-    let i = 0;
-    for (; i < left.length && i < right.length; i++) {
+    for (let i = 0; i < left.length && i < right.length; i++) {
         let l = left[i];
         let r = right[i];
         if (typeof l === "number" && typeof r === "number") {
-            if (l < r) return true;
-            if (l > r) return false;
-            continue;
+            if (l == r) continue;
+            return l < r;
         }
         if (!Array.isArray(l)) l = [l];
         if (!Array.isArray(r)) r = [r];
