@@ -29,13 +29,10 @@ while (!occupied.has('500,0')) {
     if (occupied.has(`${sand[0]},${sand[1] + 1}`)) { // down occupied
         if (occupied.has(`${sand[0] - 1},${sand[1] + 1}`)) { // down-left occupied
             sand[0]++;
-            sand[1]++;
         } else {
             sand[0]--;
-            sand[1]++;
         }
-    } else {
-        sand[1]++;
     }
+    sand[1]++;
 }
 print(count);
