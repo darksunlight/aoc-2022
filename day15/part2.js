@@ -3,8 +3,6 @@ require("../utils");
 const input = readInput();
 const pairs = input.lines().map(l => l.split(': closest beacon is at ').map(x => x.match(/x=(-?\d+), y=(-?\d+)$/).slice(1, 3).map(d => +d)));
 
-const beaconsSet = [...new Set(pairs.map(p => `${p[1][0]},${p[1][1]}`))].map(x => x.split(',').map(d => +d));
-
 function manhattan([x1, y1], [x2, y2]) {
     return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
