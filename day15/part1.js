@@ -20,14 +20,6 @@ function noBeaconAtY(y, src, beacon) {
 
 const requiredY = 2_000_000;
 const noBeaconAtRangesX = pairs.map(([sensor, beacon]) => noBeaconAtY(requiredY, sensor, beacon)).filter(x => x);
-// print(noBeaconAtRangesX.map(x => x[1]).max() - noBeaconAtRangesX.map(x => x[0]).min() + 1 - beaconsSet.filter(x => x[1] === requiredY).length);
-const noBeacon = new Set();
-noBeaconAtRangesX.map(([start, end]) => {
-    for (let i = start; i <= end; i++) {
-        noBeacon.add(i);
-    }
-});
-beaconsSet.filter(x => x[1] === requiredY).forEach(beacon => {
-    noBeacon.delete(beacon[0]);
-});
-print(noBeacon.size);
+print(noBeaconAtRangesX.map(x => x[1]).max() - noBeaconAtRangesX.map(x => x[0]).min() + 1 - beaconsSet.filter(x => x[1] === requiredY).length);
+// turns out my initial assumption was probably true, that the whole range is continuous
+// since the input is probably chosen to not have a gap in 2000000 o/w part 2 would be trivial

@@ -20,10 +20,7 @@ function noBeaconAtY(y, src, beacon) {
 
 const required = 4_000_000;
 for (let y = 0; y <= required; y++) {
-    const noBeaconAtRangesX = pairs.map(([sensor, beacon]) => noBeaconAtY(y, sensor, beacon)).filter(x => x).sort((a, b) => {
-        if (a[0] == b[0]) return b[1] - a[1];
-        return a[0] - b[0];
-    });
+    const noBeaconAtRangesX = pairs.map(([sensor, beacon]) => noBeaconAtY(y, sensor, beacon)).filter(x => x).sort((a, b) => a[0] - b[0]);
     let range = Array.from(noBeaconAtRangesX[0]);
     noBeaconAtRangesX.map(([start, end]) => {
         if (start > range[1] + 1) {
